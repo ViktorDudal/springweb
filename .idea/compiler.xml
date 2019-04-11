@@ -9,5 +9,8 @@
         <module name="springweb" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springweb" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,7 +1,9 @@
 package com.example.springweb.model;
 
-import javax.persistence.*;
+import com.example.springweb.util.LocalDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -9,17 +11,21 @@ import java.time.LocalDate;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "surname")
+    @Column
     private String surname;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
+    @JsonSerialize(using = LocalDateSerializer.class)
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
+
+    @Enumerated(EnumType.STRING)
+    private Specialization specialization;
 
     public Person() {
     }
@@ -60,5 +66,13 @@ public class Person {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Specialization getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(Specialization specialization) {
+        this.specialization = specialization;
     }
 }

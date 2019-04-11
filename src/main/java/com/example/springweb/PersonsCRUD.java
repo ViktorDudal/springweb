@@ -2,9 +2,11 @@ package com.example.springweb;
 
 import com.example.springweb.model.Person;
 import org.hibernate.Session;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PersonsCRUD {
 
     public void save(Person person) {
@@ -27,6 +29,7 @@ public class PersonsCRUD {
         Session session = HibernateUtil.getSessionFactory().openSession();
         return session.createCriteria(Person.class).list();
     }
+
 
     public Person getById(Integer id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
