@@ -30,6 +30,8 @@ public class HibernateUtil {
                 settings.put(Environment.USER, "postgres");
                 settings.put(Environment.PASS, "root");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
+                //change to "update" after creating
+//                settings.put(Environment.HBM2DDL_AUTO, "create");
 
                 registryBuilder.applySettings(settings);
 

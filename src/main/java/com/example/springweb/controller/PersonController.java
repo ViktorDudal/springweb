@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -25,13 +24,13 @@ public class PersonController {
     private PersonsCRUD personsCRUD;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ResponseEntity<List<Person>> showPerson() {
-       return ResponseEntity.ok().body(personsCRUD.getAll());
+    public ResponseEntity<Person> showPerson() {
+       return ResponseEntity.ok().body(personsCRUD.getById(2));
     }
 
 //    @RequestMapping(value = "/", method = RequestMethod.GET)
-//    public ResponseEntity<Person> showPerson() {
-//       return ResponseEntity.ok().body(personsCRUD.getById(1));
+//    public ResponseEntity<List<Person>> showAllPerson() {
+//       return ResponseEntity.ok().body(personsCRUD.getAll());
 //    }
 
     @RequestMapping(value = "/value", method = RequestMethod.GET)
